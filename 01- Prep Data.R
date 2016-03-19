@@ -22,12 +22,12 @@ parent = structure(list(Year = integer(0), Month = integer(0), DayofMonth = inte
 appendr = function(x,types){
   print(x)
   tmp = readr::read_csv(x,col_types = types)
-  if(grepl('^198',x)) readr::write_csv(tmp,'through89.csv',append = T)
-  if(grepl('^199|^198',x)) readr::write_csv(tmp,'through99.csv',append = T)
-  readr::write_csv(tmp,'through08.csv',append=T)
+  if(grepl('^2',x)) readr::write_csv(tmp,'00-08.csv',append = T)
+  if(grepl('^199[5-9]|^2',x)) readr::write_csv(tmp,'95-08.csv',append = T)
+  readr::write_csv(tmp,'everything.csv',append=T)
 }
 
-csvFiles = list.files() %>% .[grepl('csv$',.)]
+csvFiles = list.files() %>% .[grepl('[0-9]{4}.csv$',.)]
 types = c("i", "i", "i", "i", "i", "i", 
 "i", "i", "c", "i", "c", "i", 
 "i", "i", "i", "i", "c", "c", 
@@ -35,8 +35,8 @@ types = c("i", "i", "i", "i", "i", "i",
 "c", "c", "c", "c", "c"
 ) %>% paste(collapse='')
 
-readr::write_csv(parent,'through89.csv')
-readr::write_csv(parent,'through99.csv')
-readr::write_csv(parent,'through08.csv')
+readr::write_csv(parent,'00-08.csv')
+readr::write_csv(parent,'95-08.csv')
+readr::write_csv(parent,'everything.csv')
 
 lapply(csvFiles,appendr,types)
