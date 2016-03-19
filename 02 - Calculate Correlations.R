@@ -8,8 +8,7 @@ for(i in dataFiles){
   #First extract all numeric columns for which a correlation makes sense
   tmp = readr::read_csv(i) %>% 
     dplyr::select(ActualElapsedTime, CRSElapsedTime, AirTime, ArrDelay, DepDelay,
-                  Distance, TaxiIn, TaxiOut, CarrierDelay, WeatherDelay, NASDelay,
-                  SecurityDelay, LateAircraftDelay)
+                  Distance, TaxiIn, TaxiOut)
   #Calculate correlation matrix with pairwise deletion
   timing_wide = system.time({correls_wide = cor(tmp,use="na.or.complete")})
   print(correls_wide)
@@ -21,6 +20,8 @@ for(i in dataFiles){
   print(correls_narrow)
   
   #clean up
-  readr::write_csv(dplyr::data_frame(File=i,Tool="R",NarrowTime=timing_narrow[3],WideTime=timing_wide[3]),"performance measures.txt",append=T)
+  readr::write_csv(dplyr::data_frame(File=i,Tool="R",NarrowTime=timing_narrow[3],WideTime=timing_wide[3],Technique="correlation"),
+                   "performance measures.txt",
+                   append=T)
   rm(tmp,correls_wide,correls_narrow)
 }
