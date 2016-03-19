@@ -9,8 +9,8 @@ parent = structure(list(Year = integer(0), Month = integer(0), DayofMonth = inte
     DepDelay = integer(0), Origin = character(0), Dest = character(0), 
     Distance = integer(0), TaxiIn = integer(0), TaxiOut = integer(0), 
     Cancelled = integer(0), CancellationCode = character(0), 
-    Diverted = integer(0), CarrierDelay = character(0), WeatherDelay = character(0), 
-    NASDelay = character(0), SecurityDelay = character(0), LateAircraftDelay = character(0)), .Names = c("Year", 
+    Diverted = integer(0), CarrierDelay = integer(0), WeatherDelay = integer(0), 
+    NASDelay = integer(0), SecurityDelay = integer(0), LateAircraftDelay = integer(0)), .Names = c("Year", 
 "Month", "DayofMonth", "DayOfWeek", "DepTime", "CRSDepTime", 
 "ArrTime", "CRSArrTime", "UniqueCarrier", "FlightNum", "TailNum", 
 "ActualElapsedTime", "CRSElapsedTime", "AirTime", "ArrDelay", 
@@ -32,7 +32,7 @@ types = c("i", "i", "i", "i", "i", "i",
 "i", "i", "c", "i", "c", "i", 
 "i", "i", "i", "i", "c", "c", 
 "i", "i", "i", "i", "c", "i", 
-"c", "c", "c", "c", "c"
+"i", "i", "i", "i", "i"
 ) %>% paste(collapse='')
 
 readr::write_csv(parent,'00-08.csv')
