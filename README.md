@@ -27,8 +27,8 @@ We're interested in testing the above measures on 'small', 'medium' and 'big' da
 #### Airline Data
 
                 Narrow   Wide              Narrow Columns: AirTime,ArrDelay,DepDelay,Distance,Cancelled,Diverted
-              ------------------           Wide: All Columns
-         2008 |   1   |   4    |
+              ------------------           Wide: ActualElapsedTime, CRSElapsedTime, AirTime, ArrDelay, DepDelay, Distance, TaxiIn, 
+         2008 |   1   |   4    |                 TaxiOut, CarrierDelay, WeatherDelay, NASDelay, SecurityDelay, LateAircraftDelay
     2000-2008 |   2   |   5    |           For regression analysis use ArrDelay as response
     1995-2008 |   3   |   6    |           For classification analysis use Cancelled and CancellationCode as responses
               ------------------           Note: Not all columns are popluated for all years - we may want to drop some years
