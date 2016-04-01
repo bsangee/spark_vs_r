@@ -2,7 +2,7 @@ library(readr) #if not installed: install.packages('readr')
 library(magrittr) #if not installed; install.packages('magrittr')
 library(dplyr) #if not installed; install.packages('dplyr')
 
-dataFiles = c("00-08.csv","95-08.csv")
+dataFiles = c("2008.csv","00-08.csv","95-08.csv")
 
 types = c("i", "i", "i", "i", "i", "i",
   "i", "i", "c", "i", "c", "i",
