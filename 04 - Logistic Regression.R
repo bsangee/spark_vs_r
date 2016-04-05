@@ -23,7 +23,7 @@ for(i in dataFiles){
   tmp = readr::read_csv(i,col_types = types) %>%
     dplyr::select(-Year,-CancellationCode,-Diverted,-TailNum,-FlightNum,-Origin,-Dest,
                   -CarrierDelay,-WeatherDelay,-NASDelay,-SecurityDelay,-LateAircraftDelay,
-                  -DepDelay,-TaxiOut,-TaxiIn,-DepTime,-ArrTime,-ActualElapsedTime,-AirTime,ArrDelay,DepDelay) %>%
+                  -DepDelay,-TaxiOut,-TaxiIn,-DepTime,-ArrTime,-ActualElapsedTime,-AirTime,-ArrDelay,-DepDelay) %>%
     dplyr::mutate(UniqueCarrier = as.factor(UniqueCarrier),
                   Month = as.factor(Month),
                   DayOfWeek = as.factor(DayOfWeek),
