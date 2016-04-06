@@ -1,0 +1,2 @@
+Training Error = 1.42658887763e-07
+
