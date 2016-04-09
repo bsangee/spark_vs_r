@@ -6,7 +6,7 @@ from numpy import array
 
 sc = SparkContext ("local", "Run 1 - Logistic Regression Narrow - Data2008 - Single Node")
 
-data_file = "2008-reduced.csv"
+data_file = "../../../../2008.csv"
 raw_data = sc.textFile (data_file).cache ()
 #extract the header
 header = raw_data.first ()
@@ -21,10 +21,10 @@ def parsePoint (line):
 	#make Cancelled as binary since that's our response
 	
 	#cancelled = line_split[21]
-	"""if (line_split[21] > 0):
-		line_split[21] = 1
+	if (line_split[21] == '0'):
+		line_split[21] = 0
 	else:
-		line_split[21] = 0"""
+		line_split[21] = 1
 	
 	#keep just numeric values
 	"""
@@ -34,35 +34,29 @@ def parsePoint (line):
 	18 = Distance
 	21 = Cancelled,
 	"""
-	symbolic_indexes = [21, 5, 7, 12, 18]
+	symbolic_indexes = [5, 7, 12, 18, 21]
 	clean_line_split = [item for i, item in enumerate (line_split) if i in symbolic_indexes]
 	
 	#Cancelled becomes the 5th column now, and total columns in the data = 5
-	#label = clean_line_split[4]
-	#nonLable = clean_line_split[0:4]# + clean_line_split[2]
-	values = [float (x) for x in clean_line_split]
+	label = clean_line_split[4]
+	nonLabel = clean_line_split[0:4]# + clean_line_split[2]
 
-	if values[0] > 0.5:
-		values[0]=1;
-	else:
-		values[0]=0;
-
-	return LabeledPoint (values[0], values[1:])
+	return LabeledPoint (label, nonLabel)
 	#return LabeledPoint (clean_line_split[0], clean_line_split[1:])
 
 parsedData = raw_data.map (parsePoint)
 #divide training and test data by 70-30 rule
-(trainingData, testData) = parsedData.randomSplit ([0.7, 0.3], seed=11L)
-#print trainingData
+(training, test) = parsedData.randomSplit ([0.7, 0.3], seed=11L)
 #start timer at this point
-#startTime = datetime.now()
+startTime = datetime.now()
 #build the model"""
-model = LogisticRegressionWithLBFGS.train (trainingData, numClasses=3)
+model = LogisticRegressionWithLBFGS.train (training, numClasses=3)
+training.cache ()
 
 #evaluate the model on training data
-labelAndPreds = testData.map (lambda x: (x.label, model.predict (x.features)))
-trainErr = labelAndPreds.filter (lambda (w, x): w != x).count () / float (testData.count ())
-#print ('Time consumed = '), (datetime.now() - startTime)
+labelAndPreds = test.map (lambda x: (x.label, model.predict (x.features)))
+trainErr = labelAndPreds.filter (lambda (w, x): w != x).count () / float (test.count ())
+print ('Time consumed = '), (datetime.now() - startTime)
 
 print ("Training error = " + str (trainErr))
 

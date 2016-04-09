@@ -6,7 +6,7 @@ from pyspark.mllib.evaluation import MulticlassMetrics
 
 sc = SparkContext ("local", "Run 1 - Logistic Regression Wide - Data2008 - Single Node")
 
-data_file = "2008-reduced.csv"
+data_file = "../../../../95-08.csv"
 raw_data = sc.textFile (data_file).cache ()
 #extract the header
 header = raw_data.first ()
@@ -19,10 +19,10 @@ def parsePoint (line):
 	#substituting NA with zeros
 	line_split = [w.replace ('NA', '0') for w in line_split]
 	#make Cancelled as binary since that's our response
-	if (line_split[21] > 0):
-		line_split[21] = 1
-	else:
+	if (line_split[21] == '0'):
 		line_split[21] = 0
+	else:
+		line_split[21] = 1
 	
 	#keep just numeric values
 	"""
@@ -60,14 +60,15 @@ labelAndPreds = test.map (lambda x: (x.label, model.predict (x.features)))
 
 #labelAndPreds = testData.map (lambda x: (x.label, model.predict (x.features)))
 trainErr = labelAndPreds.filter (lambda (w, x): w != x).count () / float (test.count ())
+
 print ('Time consumed = '), (datetime.now() - startTime)
 
 print ("Training error = " + str (trainErr))
 
 #save and load model
-#model.save(sc, "LR")
-#sameModel = LogisticRegressionModel.load(sc, "LRW-2008")
-#sc.stop ()
+model.save(sc, "LR")
+sameModel = LogisticRegressionModel.load(sc, "LRW-2008")
+sc.stop ()
 # Instantiate metrics object
 """metrics = MulticlassMetrics(labelAndPreds)
 # Overall statistics
