@@ -24,25 +24,27 @@ def parsePoint (line):
 		line_split[21] = 0
 	else:
 		line_split[21] = 1
-	#keep just numeric values
+	#keep just the columns needed
 	"""
 	5 = CRSDepTime
 	7 = CRSArrTime
+	9 = FlightNum
 	12 = CRSElapsedTime
 	18 = Distance
-	21 = Cancelled,
+	21 = Cancelled
 	"""
-	symbolic_indexes = [5, 7, 12, 18, 21]
+	symbolic_indexes = [5, 7, 9, 12, 18, 21]
 	clean_line_split = [item for i, item in enumerate (line_split) if i in symbolic_indexes]
 	
-	#Cancelled becomes the 5th column now, and total columns in the data = 5
-	label = clean_line_split[4]
-	nonLable = clean_line_split[0:4]
+	#Cancelled becomes the 6th column now, and total columns in the data = 6
+	label = clean_line_split[5]
+	nonLable = clean_line_split[0:5]
 	return LabeledPoint (label, nonLable)
 
 parsedData = raw_data.map (parsePoint)
 #divide training and test data by 70-30 rule
 (training, test) = parsedData.randomSplit([0.7, 0.3])
+training.cache ()
 
 #start timer at this point
 startTime = datetime.now()
