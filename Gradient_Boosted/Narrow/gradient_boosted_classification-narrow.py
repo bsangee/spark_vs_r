@@ -5,7 +5,7 @@ from datetime import datetime
 
 sc = SparkContext ("local", "Run 1 - Gradient Boosted Classification Narrow - Data2008 - Single Node")
 
-data_file = "../../../../../2008.csv"
+data_file = "../../../../2008.csv"
 raw_data = sc.textFile (data_file).cache ()
 #extract the header
 header = raw_data.first ()
@@ -29,22 +29,21 @@ def parsePoint (line):
 	"""
 	5 = CRSDepTime
 	7 = CRSArrTime
-	9 = FlightNum
 	12 = CRSElapsedTime
 	18 = Distance
 	21 = Cancelled
 	"""
-	symbolic_indexes = [5, 7, 9, 12, 18, 21]
+	symbolic_indexes = [5, 7, 12, 18, 21]
 	clean_line_split = [item for i, item in enumerate (line_split) if i in symbolic_indexes]
 	
-	#Cancelled becomes the 6th column now, and total columns in the data = 6
-	label = clean_line_split[5]
-	nonLable = clean_line_split[0:5]
+	#Cancelled becomes the 5th column now, and total columns in the data = 5
+	label = clean_line_split[4]
+	nonLable = clean_line_split[0:4]
 	return LabeledPoint (label, nonLable)
 
 parsedData = raw_data.map (parsePoint)
 #divide training and test data by 70-30 rule
-(training, test) = parsedData.randomSplit ([0.7, 0.3])
+(training, test) = parsedData.randomSplit([0.7, 0.3])
 training.cache ()
 
 #start timer at this point
@@ -65,5 +64,5 @@ print (model.toDebugString())
 
 #save and load model
 model.save(sc, "GB-Class-N-2008")
-sameModel = DecisionTreeModel.load(sc, "GB-Class-N-2008")
+sameModel = DecisionTreeModel.load(sc, "GB-Class-W-2008")
 sc.stop ()
