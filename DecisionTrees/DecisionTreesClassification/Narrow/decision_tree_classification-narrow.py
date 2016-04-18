@@ -3,9 +3,9 @@ from pyspark.mllib.regression import LabeledPoint
 from pyspark.mllib.tree import DecisionTree, DecisionTreeModel
 from datetime import datetime
 
-sc = SparkContext ("local", "Run 1 - Decision Tree Classification Narrow - Data00-08 - Single Node")
+sc = SparkContext ("local", "Run 1 - Decision Tree Classification Narrow - Data95-08 - Single Node")
 
-data_file = "../../../../../00-08.csv"
+data_file = "../../../../../95-08.csv"
 raw_data = sc.textFile (data_file).cache ()
 #extract the header
 header = raw_data.first ()
@@ -63,6 +63,6 @@ print ('Learned classification tree model:')
 print (model.toDebugString())
 
 #save and load model
-model.save(sc, "DT-Class-N-00-08")
-sameModel = DecisionTreeModel.load(sc, "DT-Class-N-00-08")
+model.save(sc, "DT-Class-N-95-08")
+sameModel = DecisionTreeModel.load(sc, "DT-Class-N-95-08")
 sc.stop ()
