@@ -6,7 +6,7 @@ from datetime import datetime
 
 sc = SparkContext ("local", "Run 1 - Decision Tree Regression Narrow - Data2008 - Single Node")
 
-data_file = "2008.csv"
+data_file = "../../../../../2008.csv"
 raw_data = sc.textFile (data_file).cache ()
 #extract the header
 header = raw_data.first ()
@@ -47,7 +47,7 @@ def parsePoint (line):
 parsedData = raw_data.map (parsePoint)
 
 #divide training and test data by 70-30 rule
-(trainingData, testData) = parsedData.randomSplit([0.7, 0.3])
+(training, test) = parsedData.randomSplit([0.7, 0.3])
 
 #start timer at this point
 startTime = datetime.now()
@@ -59,7 +59,7 @@ model = DecisionTree.trainRegressor (training, categoricalFeaturesInfo={},
 predictions = model.predict (test.map (lambda x: x.features))
 labelsAndPredictions = test.map (lambda lp: lp.label).zip (predictions)
 testMSE = labelsAndPredictions.map (lambda (v, p): (v - p) * (v - p)).sum() /\
-    float(testData.count())
+    float(test.count())
 
 print ('Time consumed = '), (datetime.now() - startTime)
 
