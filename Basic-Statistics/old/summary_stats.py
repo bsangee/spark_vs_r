@@ -7,7 +7,7 @@ from datetime import datetime
 sc = SparkContext ("local", "Run 1 - Summary Statistics - Data2008 - Single Node")
 
 data_file = "../../../2008.csv"
-raw_data = sc.textFile (data_file).cache ()
+raw_data = sc.textFile (data_file)
 #extract header
 header = raw_data.first () 
 raw_data = raw_data.filter (lambda x:x != header)
