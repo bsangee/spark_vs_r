@@ -12,8 +12,8 @@ from datetime import datetime
 
 
 # Load and parse the data
-sc = SparkContext("local", "Run 1 SVM wide Data95-08 training Single Node")
-data_file = sc.textFile("/home/faiz89/Desktop/Eastman/95-08.csv")
+sc = SparkContext("local[*]", "Run 1 SVM wide Data2008 training Single Node")
+data_file = sc.textFile("/home/faiz89/Desktop/Eastman/2008.csv")
 #raw_data = sc.textFile (data_file).cache ()
 #extract header
 header = data_file.first()
@@ -22,8 +22,9 @@ raw_data = data_file.filter (lambda x:x != header)
 def parsePoint(line):
 	line_split = line.split(",")
 	line_split = [w.replace ('NA', '0') for w in line_split]
-	symbolic_indexes = [0, 22, 23, 10, 8,  9, 16, 17, 24, 25, 26, 27, 28, 15, 20, 19, 4, 6, 11, 13, 14]
-	clean_line_split = [item for i,item in enumerate(line_split) if i not in symbolic_indexes]
+	symbolic_indexes = [1, 2, 3, 5, 7, 12, 18, 21]
+
+	clean_line_split = [item for i,item in enumerate(line_split) if i in symbolic_indexes]
 	values = [float(x) for x in clean_line_split]
 	if values[7] == 0:
                         values[7]=1;
@@ -53,6 +54,6 @@ print("Training Error = " + str(testErr))
 
 
 # Save and load model
-model.save(sc, "SVMwide95-08train")
-sameModel = SVMModel.load(sc, "SVMwide95-08train")
+model.save(sc, "SVMwide2008train")
+sameModel = SVMModel.load(sc, "SVMwide2008train")
 
