@@ -46,7 +46,7 @@ def parsePoint (line):
 
 parsedData = raw_data.map (parsePoint)
 #divide training and test data by 70-30 rule
-(trainingData, testData) = parsedData.randomSplit([0.7, 0.3])
+(training, test) = parsedData.randomSplit([0.7, 0.3])
 
 #start timer at this point
 startTime = datetime.now()
