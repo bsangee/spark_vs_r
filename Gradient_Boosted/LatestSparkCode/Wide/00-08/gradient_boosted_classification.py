@@ -3,9 +3,9 @@ from pyspark.mllib.regression import LabeledPoint
 from pyspark.mllib.tree import GradientBoostedTrees, GradientBoostedTreesModel
 from datetime import datetime
 
-sc = SparkContext ("local", "Run 1 - Gradient Boosted Classification Narrow - Data2008 - Single Node")
+sc = SparkContext ("local[*]", "Run 1 - Gradient Boosted Classification Wide - Data00-08 - Single Node")
 
-data_file = "../../../../2008.csv"
+data_file = "/home/faiz89/Desktop/Eastman/00-08.csv"
 raw_data = sc.textFile (data_file).cache ()
 #extract the header
 header = raw_data.first ()
@@ -27,18 +27,22 @@ def parsePoint (line):
 
 	#keep just the columns needed
 	"""
+	1 = Month
+	2 = DayOfMonth
+	3 = DayOfWeek
 	5 = CRSDepTime
 	7 = CRSArrTime
+	8 = UniqueCarrier = Non numeric
 	12 = CRSElapsedTime
 	18 = Distance
 	21 = Cancelled
 	"""
-	symbolic_indexes = [5, 7, 12, 18, 21]
+	symbolic_indexes = [1, 2, 3, 5, 7, 12, 18, 21]
 	clean_line_split = [item for i, item in enumerate (line_split) if i in symbolic_indexes]
 	
-	#Cancelled becomes the 5th column now, and total columns in the data = 5
-	label = clean_line_split[4]
-	nonLable = clean_line_split[0:4]
+	#Cancelled becomes the 8th column now, and total columns in the data = 8
+	label = clean_line_split[7]
+	nonLable = clean_line_split[0:7]
 	return LabeledPoint (label, nonLable)
 
 parsedData = raw_data.map (parsePoint)
@@ -63,6 +67,6 @@ print ('Learned classification GBT model:')
 print (model.toDebugString())
 
 #save and load model
-model.save(sc, "GB-Class-N-2008")
-sameModel = DecisionTreeModel.load(sc, "GB-Class-W-2008")
+model.save(sc, "GB-Class-W-00-08")
+sameModel = DecisionTreeModel.load(sc, "GB-Class-W-00-08")
 sc.stop ()
