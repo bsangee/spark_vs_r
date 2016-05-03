@@ -1,0 +1,96 @@
+Time consumed =  0:10:14.195073
+Test Mean Squared Error = 325.845066382
+Learned regression tree model:
+DecisionTreeModel regressor of depth 5 with 61 nodes
+  If (feature 7 <= 59.0)
+   If (feature 7 <= 14.0)
+    If (feature 10 <= 32.0)
+     If (feature 7 <= -1.0)
+      If (feature 10 <= 17.0)
+       Predict: -9.528727025594975
+      Else (feature 10 > 17.0)
+       Predict: -2.705945732186514
+     Else (feature 7 > -1.0)
+      If (feature 7 <= 5.0)
+       Predict: -1.6939288203620682
+      Else (feature 7 > 5.0)
+       Predict: 5.774810484195287
+    Else (feature 10 > 32.0)
+     If (feature 10 <= 39.0)
+      If (feature 7 <= 1.0)
+       Predict: 7.348454606827321
+      Else (feature 7 > 1.0)
+       Predict: 18.260319445780816
+     Else (feature 10 > 39.0)
+      If (feature 7 <= 0.0)
+       Predict: 24.46026272357669
+      Else (feature 7 > 0.0)
+       Predict: 38.269510602574464
+   Else (feature 7 > 14.0)
+    If (feature 7 <= 39.0)
+     If (feature 10 <= 39.0)
+      If (feature 7 <= 27.0)
+       Predict: 16.903523541192843
+      Else (feature 7 > 27.0)
+       Predict: 29.53837910247823
+     Else (feature 10 > 39.0)
+      If (feature 4 <= 199.0)
+       Predict: 54.55152504811337
+      Else (feature 4 > 199.0)
+       Predict: 69.78342578965244
+    Else (feature 7 > 39.0)
+     If (feature 10 <= 39.0)
+      If (feature 10 <= 20.0)
+       Predict: 42.55077315615528
+      Else (feature 10 > 20.0)
+       Predict: 53.380222072265504
+     Else (feature 10 > 39.0)
+      If (feature 4 <= 199.0)
+       Predict: 78.46230158730158
+      Else (feature 4 > 199.0)
+       Predict: 99.1083156779661
+  Else (feature 7 > 59.0)
+   If (feature 7 <= 100.0)
+    If (feature 10 <= 39.0)
+     If (feature 10 <= 20.0)
+      If (feature 9 <= 14.0)
+       Predict: 69.88624130235
+      Else (feature 9 > 14.0)
+       Predict: 86.57126253087317
+     Else (feature 10 > 20.0)
+      If (feature 4 <= 36.0)
+       Predict: 0.0
+      Else (feature 4 > 36.0)
+       Predict: 82.5444395987789
+    Else (feature 10 > 39.0)
+     If (feature 4 <= 36.0)
+      Predict: 0.0
+     Else (feature 4 > 36.0)
+      If (feature 4 <= 182.0)
+       Predict: 107.56751309955663
+      Else (feature 4 > 182.0)
+       Predict: 125.66365905164139
+   Else (feature 7 > 100.0)
+    If (feature 4 <= 36.0)
+     If (feature 8 <= 159.0)
+      If (feature 9 <= 1.0)
+       Predict: 35.04
+      Else (feature 9 > 1.0)
+       Predict: 149.9248120300752
+     Else (feature 8 > 159.0)
+      If (feature 6 <= 21.0)
+       Predict: 0.43986254295532645
+      Else (feature 6 > 21.0)
+       Predict: 162.66666666666666
+    Else (feature 4 > 36.0)
+     If (feature 0 <= 744.0)
+      If (feature 1 <= 1955.0)
+       Predict: 376.3928836174944
+      Else (feature 1 > 1955.0)
+       Predict: 188.86379551820727
+     Else (feature 0 > 744.0)
+      If (feature 10 <= 39.0)
+       Predict: 159.15900629642974
+      Else (feature 10 > 39.0)
+       Predict: 204.24434206272227
+

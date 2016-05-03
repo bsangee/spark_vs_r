@@ -1,0 +1,2 @@
+Time consumed =  1:36:28.217673
+Mean Squared Error = 1.01204366939e+16

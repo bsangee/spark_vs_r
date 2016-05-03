@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/hadoop/spark_vs_r/DecisionTreesRegression/LatestSparkCode/Narrow/95-08/decision_tree_regression.py", line 63, in <module>
+    float(testData.count())
+NameError: name 'testData' is not defined
