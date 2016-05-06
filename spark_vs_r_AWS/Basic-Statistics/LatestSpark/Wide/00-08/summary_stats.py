@@ -4,9 +4,9 @@ from pyspark.mllib.stat import Statistics
 from math import sqrt 
 from datetime import datetime
 
-sc = SparkContext ("local", "Run 1 - Summary Statistics - Data00-08 - Single Node")
+sc = SparkContext (appName="Run 1 - Summary Statistics - Data00-08 - AWS")
 
-data_file = "../../../../../00-08.csv"
+data_file = "s3://aws-logs-012060642840-us-west-2/elasticmapreduce/cloud_proj/00-08.csv"
 raw_data = sc.textFile (data_file).cache ()
 #extract header
 header = raw_data.first () 
@@ -43,3 +43,4 @@ print ('Variances of columns\n'), summary.variance()
 print ('Non zero values\n'), summary.numNonzeros()
 print ('Max value\n'), summary.max ()
 print ('Min value\n'), summary.min ()
+sc.stop()
