@@ -9,7 +9,7 @@ from pyspark.mllib.regression import LabeledPoint
 from datetime import datetime
 
 # Load and parse the data
-sc = SparkContext("local", "Run1 Linear Regression Data00-08 SingleNode")
+sc = SparkContext(appName= "Run1 Linear Regression Data00-08 AWS")
 def parsePoint(line):
 
 	line_split = line.split(",")
@@ -24,7 +24,7 @@ def parsePoint(line):
 	
 	return LabeledPoint(label, nonlabel) 
 
-data_file = sc.textFile("/home/faiz89/Desktop/Eastman/00-08.csv").cache ()
+data_file = sc.textFile("s3://aws-logs-012060642840-us-west-2/elasticmapreduce/cloud_proj/00-08.csv").cache ()
 header = data_file.first ()
 raw_data = data_file.filter (lambda x:x != header)
 
@@ -50,3 +50,4 @@ print("Mean Squared Error = " + str(MSE))
 # Save and load model
 model.save(sc, "LinearRegressionNarrow00-08_cache_both_train_and_test")
 sameModel = LinearRegressionModel.load(sc, "LinearRegressionNarrow00-08_cache_both_train_and_test")
+sc.stop()
