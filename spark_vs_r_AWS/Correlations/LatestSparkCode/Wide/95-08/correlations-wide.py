@@ -4,9 +4,9 @@ from pyspark.mllib.stat import Statistics
 from math import sqrt 
 from datetime import datetime
 
-sc = SparkContext("local", "Run 1 - Corr-Wide - Data95-08 - Single Node")
+sc = SparkContext(appName= "Run 1 - Corr-Wide - Data95-08 - AWS")
 
-data_file = "/home/faiz89/Desktop/Eastman/95-08.csv"
+data_file = "s3://aws-logs-012060642840-us-west-2/elasticmapreduce/cloud_proj/95-08.csv"
 raw_data = sc.textFile (data_file).cache ()
 #extract header
 header = raw_data.first () 
@@ -31,3 +31,4 @@ vector_data = raw_data.map (parse_interaction)
 startTime = datetime.now()
 print (Statistics.corr (vector_data, method="pearson"))
 print ('Time consumed = '), (datetime.now() - startTime)
+sc.stop()
