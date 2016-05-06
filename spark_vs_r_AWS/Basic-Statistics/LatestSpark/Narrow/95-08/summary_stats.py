@@ -6,7 +6,7 @@ from datetime import datetime
 
 sc = SparkContext (appName= "Run 1 - Summary Statistics - Data95-08 - AWS")
 
-data_file = "s3://aws-logs-012060642840-us-west-2/elasticmapreduce/cloud_proj/2008.csv"
+data_file = "s3://aws-logs-012060642840-us-west-2/elasticmapreduce/cloud_proj/95-08.csv"
 raw_data = sc.textFile (data_file).cache ()
 #extract header
 header = raw_data.first () 
