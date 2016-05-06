@@ -4,9 +4,9 @@ from numpy import array
 from pyspark.mllib.tree import DecisionTree, DecisionTreeModel
 from datetime import datetime
 
-sc = SparkContext ("local[*]", "Run 1 - Decision Tree Regression Wide - Data95-08 - Single Node")
+sc = SparkContext (appName= "Run 1 - Decision Tree Regression Wide - Data95-08 - AWS")
 
-data_file = "/home/faiz89/Desktop/Eastman/95-08.csv"
+data_file = "s3://aws-logs-012060642840-us-west-2/elasticmapreduce/cloud_proj/95-08.csv"
 raw_data = sc.textFile (data_file).cache ()
 #extract the header
 header = raw_data.first ()
