@@ -12,8 +12,8 @@ from datetime import datetime
 
 
 # Load and parse the data
-sc = SparkContext("local[*]", "Run 1 SVM wide Data00-08 training Single Node")
-data_file = sc.textFile("/home/faiz89/Desktop/Eastman/00-08.csv")
+sc = SparkContext(appName = "Run 1 SVM wide Data00-08 training AWS")
+data_file = sc.textFile(""s3://aws-logs-012060642840-us-west-2/elasticmapreduce/cloud_proj/00-08.csv")
 #raw_data = sc.textFile (data_file).cache ()
 #extract header
 header = data_file.first()
@@ -55,4 +55,5 @@ print("Training Error = " + str(testErr))
 # Save and load model
 model.save(sc, "SVMwide00-08train")
 sameModel = SVMModel.load(sc, "SVMwide00-08train")
+sc.stop()
 
