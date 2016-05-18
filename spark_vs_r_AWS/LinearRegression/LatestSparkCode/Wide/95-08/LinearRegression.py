@@ -9,7 +9,7 @@ from pyspark.mllib.regression import LabeledPoint
 from datetime import datetime
 
 # Load and parse the data
-sc = SparkContext("local", "Run1 Linear Regression Data95-08 SingleNode")
+sc = SparkContext(appName = "Run1 Linear Regression Data95-08 AWS")
 def parsePoint(line):
 
 	line_split = line.split(",")
