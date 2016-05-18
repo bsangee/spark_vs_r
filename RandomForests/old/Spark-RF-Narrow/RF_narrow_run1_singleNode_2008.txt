@@ -1,0 +1,14 @@
+Training Time consumed =  0:03:20.592536
+Testing Time consumed =  0:03:20.720397
+Time consumed =  0:06:41.312990
+Test Error = 0.0
+Learned classification forest model:
+TreeEnsembleModel classifier with 3 trees
+
+  Tree 0:
+    Predict: 0.0
+  Tree 1:
+    Predict: 0.0
+  Tree 2:
+    Predict: 0.0
+

@@ -1,0 +1,14 @@
+File,Tool,Narrow Timing,Wide Timing,Technique
+"2008.csv","R",1.33,19.73,"correlation"
+"00-08.csv","R",11.2,NA,"correlation"
+"95-08.csv","R",17.22,NA,"correlation"
+"2008.csv","R",2.75,22.28,"summary"
+"00-08.csv","R",22.57,250.27,"summary"
+"95-08.csv","R",43.18,432.6,"summary"
+2008.csv,R,0.444999999832362,10.938000000082,correlation
+00-08.csv,R,4.84700000006706,424.709999999963,correlation
+95-08.csv,R,6.22299999999814,851.989999999991,correlation
+2008.csv,R,1.30899999989197,7.79600000008941,summary
+00-08.csv,R,13.3359999998938,82.0249999999069,summary
+95-08.csv,R,22.905999999959,199.439000000013,summary
+"2008.csv","R",404.49,2264.95,"logistic"

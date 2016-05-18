@@ -1,0 +1,79 @@
+Time consumed =  0:03:30.130825
+Test Error = 0.0213485402035
+Learned classification GBT model:
+TreeEnsembleModel classifier with 3 trees
+
+  Tree 0:
+    If (feature 6 <= 770.0)
+     If (feature 0 <= 2.0)
+      If (feature 5 <= 141.0)
+       Predict: -0.9334492105541667
+      Else (feature 5 > 141.0)
+       Predict: -0.8804150197628459
+     Else (feature 0 > 2.0)
+      If (feature 0 <= 11.0)
+       Predict: -0.9563096222003958
+      Else (feature 0 > 11.0)
+       Predict: -0.9333270629199102
+    Else (feature 6 > 770.0)
+     If (feature 6 <= 1391.0)
+      If (feature 0 <= 2.0)
+       Predict: -0.956886804497967
+      Else (feature 0 > 2.0)
+       Predict: -0.9680549077571856
+     Else (feature 6 > 1391.0)
+      If (feature 0 <= 2.0)
+       Predict: -0.9642328185399369
+      Else (feature 0 > 2.0)
+       Predict: -0.9775282217875247
+  Tree 1:
+    If (feature 6 <= 292.0)
+     If (feature 5 <= 78.0)
+      If (feature 5 <= 69.0)
+       Predict: -0.41682692972079743
+      Else (feature 5 > 69.0)
+       Predict: -0.389803035389458
+     Else (feature 5 > 78.0)
+      If (feature 4 <= 1744.0)
+       Predict: -0.3685753610209702
+      Else (feature 4 > 1744.0)
+       Predict: -0.2679108043129827
+    Else (feature 6 > 292.0)
+     If (feature 6 <= 908.0)
+      If (feature 5 <= 130.0)
+       Predict: -0.43382240366820257
+      Else (feature 5 > 130.0)
+       Predict: -0.4078684844793182
+     Else (feature 6 > 908.0)
+      If (feature 0 <= 8.0)
+       Predict: -0.4514261590574846
+      Else (feature 0 > 8.0)
+       Predict: -0.4328747108473005
+  Tree 2:
+    If (feature 6 <= 337.0)
+     If (feature 5 <= 79.0)
+      If (feature 6 <= 270.0)
+       Predict: -0.37313388233814754
+      Else (feature 6 > 270.0)
+       Predict: -0.39701327449314744
+     Else (feature 5 > 79.0)
+      If (feature 6 <= 224.0)
+       Predict: -0.21238451174578646
+      Else (feature 6 > 224.0)
+       Predict: -0.3349393813754776
+    Else (feature 6 > 337.0)
+     If (feature 0 <= 9.0)
+      If (feature 0 <= 8.0)
+       Predict: -0.4021690772108028
+      Else (feature 0 > 8.0)
+       Predict: -0.331222144135309
+     Else (feature 0 > 9.0)
+      If (feature 0 <= 11.0)
+       Predict: -0.4279967657942833
+      Else (feature 0 > 11.0)
+       Predict: -0.3814848866251996
+
+Traceback (most recent call last):
+  File "/home/hadoop/spark_vs_r/Gradient_Boosted/LatestSparkCode/Wide/00-08/gradient_boosted_classification.py", line 72, in <module>
+    sameModel = DecisionTreeModel.load(sc, "GB-Class-W-00-08")
+NameError: name 'DecisionTreeModel' is not defined

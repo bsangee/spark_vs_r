@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/home/faiz89/Desktop/Eastman/git/spark_vs_r/DecisionTreesClassification/LatestSparkCode/Wide/95-08/decision_tree_classification.py", line 60, in <module>
+    impurity='gini', maxDepth=5, maxBins=32)
+  File "/home/faiz89/Desktop/Spark/spark/python/lib/pyspark.zip/pyspark/mllib/tree.py", line 220, in trainClassifier
+  File "/home/faiz89/Desktop/Spark/spark/python/lib/pyspark.zip/pyspark/mllib/tree.py", line 147, in _train
+  File "/home/faiz89/Desktop/Spark/spark/python/lib/pyspark.zip/pyspark/mllib/common.py", line 130, in callMLlibFunc
+  File "/home/faiz89/Desktop/Spark/spark/python/lib/pyspark.zip/pyspark/mllib/common.py", line 123, in callJavaFunc
+  File "/home/faiz89/Desktop/Spark/spark/python/lib/py4j-0.9.1-src.zip/py4j/java_gateway.py", line 833, in __call__
+  File "/home/faiz89/Desktop/Spark/spark/python/lib/py4j-0.9.1-src.zip/py4j/java_gateway.py", line 648, in send_command
+  File "/home/faiz89/Desktop/Spark/spark/python/lib/py4j-0.9.1-src.zip/py4j/java_gateway.py", line 762, in send_command
+  File "/usr/lib/python2.7/socket.py", line 430, in readline
+    data = recv(1)
+  File "/home/faiz89/Desktop/Spark/spark/python/lib/pyspark.zip/pyspark/context.py", line 225, in signal_handler
+KeyboardInterrupt

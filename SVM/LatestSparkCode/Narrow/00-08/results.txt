@@ -1,0 +1,4 @@
+Training Time consumed =  0:29:27.929286
+Testing Time consumed =  0:55:48.630088
+Time consumed =  1:25:16.559452
+Training Error = 0.0214362568231

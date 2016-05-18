@@ -1,0 +1,12 @@
+Traceback (most recent call last):
+  File "/home/faiz89/Desktop/Eastman/git/spark_vs_r/DecisionTreesClassification/LatestSparkCode/Narrow/2008/decision_tree_classification.py", line 6, in <module>
+    sc = SparkContext ("local", "Run 1 - Decision Tree Classification Narrow - Data2008 - Single Node")
+  File "/home/faiz89/Desktop/Spark/spark/python/lib/pyspark.zip/pyspark/context.py", line 115, in __init__
+  File "/home/faiz89/Desktop/Spark/spark/python/lib/pyspark.zip/pyspark/context.py", line 172, in _do_init
+  File "/home/faiz89/Desktop/Spark/spark/python/lib/pyspark.zip/pyspark/context.py", line 235, in _initialize_context
+  File "/home/faiz89/Desktop/Spark/spark/python/lib/py4j-0.9.1-src.zip/py4j/java_gateway.py", line 1083, in __call__
+  File "/home/faiz89/Desktop/Spark/spark/python/lib/py4j-0.9.1-src.zip/py4j/java_gateway.py", line 648, in send_command
+  File "/home/faiz89/Desktop/Spark/spark/python/lib/py4j-0.9.1-src.zip/py4j/java_gateway.py", line 762, in send_command
+  File "/usr/lib/python2.7/socket.py", line 430, in readline
+    data = recv(1)
+KeyboardInterrupt

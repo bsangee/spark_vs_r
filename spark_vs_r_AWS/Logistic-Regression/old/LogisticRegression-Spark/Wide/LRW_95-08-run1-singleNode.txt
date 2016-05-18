@@ -1,0 +1,2 @@
+Time consumed =  3:18:58.685157
+Training error = 0.0217210097144

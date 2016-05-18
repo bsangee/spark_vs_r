@@ -1,2 +1,0 @@
-Training Error = 0.0
-

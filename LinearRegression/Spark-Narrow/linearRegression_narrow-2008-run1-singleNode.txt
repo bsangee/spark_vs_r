@@ -1,2 +1,0 @@
-Mean Squared Error = 1.03262656596e+16
-
