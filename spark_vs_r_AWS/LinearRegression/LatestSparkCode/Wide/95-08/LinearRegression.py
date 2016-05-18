@@ -24,7 +24,7 @@ def parsePoint(line):
 	
 	return LabeledPoint(label, nonlabel) 
 
-data_file = sc.textFile("/home/faiz89/Desktop/Eastman/95-08.csv").cache ()
+data_file = sc.textFile("s3://aws-logs-012060642840-us-west-2/elasticmapreduce/cloud_proj/95-08.csv").cache ()
 header = data_file.first ()
 raw_data = data_file.filter (lambda x:x != header)
 
