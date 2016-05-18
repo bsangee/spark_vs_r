@@ -19,11 +19,7 @@ def parsePoint (line):
 	#replace NA with zeros
 	line_split = [w.replace ('NA', '0') for w in line_split]
 	
-	#make Cancelled as binary since that's our response
-	if (line_split[21] == '0'):
-		line_split[21] = 0
-	else:
-		line_split[21] = 1
+	
 
 	#keep just the columns needed
 	"""
