@@ -3,7 +3,7 @@ from pyspark.mllib.regression import LabeledPoint
 from pyspark.mllib.tree import DecisionTree, DecisionTreeModel
 from datetime import datetime
 
-sc = SparkContext ("local[*]", "Run 1 - Decision Tree Classification Narrow - Data00-08 - Single Node")
+sc = SparkContext (appName="Run 1 - Decision Tree Classification Narrow - Data00-08 - AWS")
 
 data_file = "s3://aws-logs-012060642840-us-west-2/elasticmapreduce/cloud_proj/00-08.csv"
 raw_data = sc.textFile (data_file).cache ()
