@@ -5,7 +5,7 @@ from datetime import datetime
 
 sc = SparkContext ("local[*]", "Run 1 - Decision Tree Classification Narrow - Data2008 - Single Node")
 
-data_file = "/home/faiz89/Desktop/Eastman/2008.csv"
+data_file = "s3://aws-logs-012060642840-us-west-2/elasticmapreduce/cloud_proj/00-08.csv"
 raw_data = sc.textFile (data_file).cache ()
 #extract the header
 header = raw_data.first ()
