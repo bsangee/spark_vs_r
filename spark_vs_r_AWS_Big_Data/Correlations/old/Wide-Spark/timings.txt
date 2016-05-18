@@ -1,0 +1,8 @@
+2008.csv
+Run1 - 7.2 minutes
+
+00-08.csv
+Run1 - 78  minutes
+
+95-08.csv
+Run1 - 138 minutes

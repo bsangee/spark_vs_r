@@ -1,0 +1,99 @@
+Time consumed =  2:19:22.212671
+Test Error = 0.0216431247281
+Learned classification tree model:
+DecisionTreeModel classifier of depth 5 with 63 nodes
+  If (feature 2 <= 4106.0)
+   If (feature 4 <= 911.0)
+    If (feature 4 <= 337.0)
+     If (feature 3 <= 77.0)
+      If (feature 2 <= 3402.0)
+       Predict: 0.0
+      Else (feature 2 > 3402.0)
+       Predict: 0.0
+     Else (feature 3 > 77.0)
+      If (feature 4 <= 223.0)
+       Predict: 0.0
+      Else (feature 4 > 223.0)
+       Predict: 0.0
+    Else (feature 4 > 337.0)
+     If (feature 3 <= 46.0)
+      If (feature 0 <= 602.0)
+       Predict: 1.0
+      Else (feature 0 > 602.0)
+       Predict: 0.0
+     Else (feature 3 > 46.0)
+      If (feature 3 <= 80.0)
+       Predict: 0.0
+      Else (feature 3 > 80.0)
+       Predict: 0.0
+   Else (feature 4 > 911.0)
+    If (feature 3 <= 46.0)
+     If (feature 0 <= 602.0)
+      If (feature 2 <= 3402.0)
+       Predict: 1.0
+      Else (feature 2 > 3402.0)
+       Predict: 0.0
+     Else (feature 0 > 602.0)
+      If (feature 2 <= 645.0)
+       Predict: 1.0
+      Else (feature 2 > 645.0)
+       Predict: 0.0
+    Else (feature 3 > 46.0)
+     If (feature 4 <= 1751.0)
+      If (feature 0 <= 602.0)
+       Predict: 0.0
+      Else (feature 0 > 602.0)
+       Predict: 0.0
+     Else (feature 4 > 1751.0)
+      If (feature 2 <= 218.0)
+       Predict: 0.0
+      Else (feature 2 > 218.0)
+       Predict: 0.0
+  Else (feature 2 > 4106.0)
+   If (feature 0 <= 1529.0)
+    If (feature 4 <= 296.0)
+     If (feature 2 <= 4748.0)
+      If (feature 4 <= 200.0)
+       Predict: 0.0
+      Else (feature 4 > 200.0)
+       Predict: 0.0
+     Else (feature 2 > 4748.0)
+      If (feature 3 <= 74.0)
+       Predict: 0.0
+      Else (feature 3 > 74.0)
+       Predict: 0.0
+    Else (feature 4 > 296.0)
+     If (feature 2 <= 5880.0)
+      If (feature 4 <= 794.0)
+       Predict: 0.0
+      Else (feature 4 > 794.0)
+       Predict: 0.0
+     Else (feature 2 > 5880.0)
+      If (feature 1 <= 1620.0)
+       Predict: 0.0
+      Else (feature 1 > 1620.0)
+       Predict: 0.0
+   Else (feature 0 > 1529.0)
+    If (feature 4 <= 794.0)
+     If (feature 3 <= 46.0)
+      If (feature 2 <= 4748.0)
+       Predict: 0.0
+      Else (feature 2 > 4748.0)
+       Predict: 0.0
+     Else (feature 3 > 46.0)
+      If (feature 4 <= 223.0)
+       Predict: 0.0
+      Else (feature 4 > 223.0)
+       Predict: 0.0
+    Else (feature 4 > 794.0)
+     If (feature 2 <= 5880.0)
+      If (feature 4 <= 911.0)
+       Predict: 0.0
+      Else (feature 4 > 911.0)
+       Predict: 0.0
+     Else (feature 2 > 5880.0)
+      If (feature 4 <= 861.0)
+       Predict: 0.0
+      Else (feature 4 > 861.0)
+       Predict: 0.0
+

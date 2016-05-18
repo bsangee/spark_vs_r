@@ -1,0 +1,4 @@
+Training Time consumed =  0:01:36.951467
+Testing Time consumed =  0:01:34.518995
+Total Time:  0:03:11.470514
+Mean Squared Error = 3.9526153087e+15

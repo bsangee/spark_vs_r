@@ -1,0 +1,8 @@
+Training Time consumed =  0:01:20.230948
+Testing Time consumed =  0:01:20.650406
+Time consumed =  0:02:40.881401
+Training Error = 0.0213709463339
+Traceback (most recent call last):
+  File "/home/hadoop/spark_vs_r/SVM/LatestSparkCode/Wide/00-08/SVM.py", line 58, in <module>
+    sc.close()
+AttributeError: 'SparkContext' object has no attribute 'close'
