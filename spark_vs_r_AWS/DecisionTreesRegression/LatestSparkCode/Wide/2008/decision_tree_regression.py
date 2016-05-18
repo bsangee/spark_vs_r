@@ -4,7 +4,7 @@ from numpy import array
 from pyspark.mllib.tree import DecisionTree, DecisionTreeModel
 from datetime import datetime
 
-sc = SparkContext ("local[*]", "Run 1 - Decision Tree Regression Wide - Data2008 - Single Node")
+sc = SparkContext (appName= "Run 1 - Decision Tree Regression Wide - Data2008 - Single Node")
 
 data_file = "s3://aws-logs-012060642840-us-west-2/elasticmapreduce/cloud_proj/2008.csv"
 raw_data = sc.textFile (data_file).cache ()
