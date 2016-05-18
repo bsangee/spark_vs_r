@@ -20,7 +20,7 @@ def parsePoint(line):
 	values = [float(x) for x in clean_line_split]
 	
 	label = clean_line_split[0]
-	nonlabel = clean_line_split[1:] + clean_line_split[11:]
+	nonlabel = clean_line_split[1:] 
 	
 	return LabeledPoint(label, nonlabel) 
 
